@@ -1,10 +1,11 @@
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ListAllRestaurants from './ListAllRestaurants';
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <BrowserRouter>
+      <ListAllRestaurants />
+    </BrowserRouter>
   );
 }
 
