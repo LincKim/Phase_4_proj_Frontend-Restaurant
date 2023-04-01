@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App.css';
 import LoginForm from './Login';
 import Signup from './Signup';
  
@@ -16,7 +17,6 @@ function App() {
      {
       currentForm === "login" ? <LoginForm onFormSwitch={toggleForm}/> : <Signup onFormSwitch={toggleForm}/>
      }
-
     </div>
   )
 }
