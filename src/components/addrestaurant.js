@@ -6,8 +6,7 @@ function Restaurant() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [location_id, setLocation_id] = useState(0)
-    const [comment, setComment] = useState("")
-    const [rating, setRating] = useState("")
+   
 
     // POST REQUEST
     function handleCreateRestaurant(e){
@@ -36,28 +35,6 @@ function Restaurant() {
         })
     }
 
-    function handleCreateReviews(e) {
-        e.preventDefault()
-
-        const formData3 = {
-            comment, 
-            rating
-        }
-        fetch('/reviews', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData3)
-        }).then((r) => {
-            if (r.ok) {
-                r.json().then(() => {
-                    setComment("")
-                    setRating("")
-                })
-            }
-        })
-    }
     const nairobi = 1
     const nakuru = 2
     const mombasa = 3
@@ -90,26 +67,7 @@ function Restaurant() {
                     </select>
                 <button className="login-button" type="submit">Add</button>
             </form>
-            <form className="login-form" onSubmit={handleCreateReviews}>
-                <h3>Enter Restaurant reviews</h3>
-                <label htmlFor="comment">Comment:</label>
-                    <input 
-                    type="text" 
-                    placeholder="Comment"
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
-                    /><br />
-                <label htmlFor="rating">Rating:</label>
-                    <input 
-                    type="number" min="1" max="5" 
-                    placeholder="1-5"
-                    value={rating}
-                    onChange={(e) => setRating(e.target.value)}
-                    required/><br />
-
-                <button className="login-button" type="submit">Add</button>
-
-            </form>
+           
         </div>
         </>
     )

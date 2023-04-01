@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './restaurantlist.css';
+import { Link } from 'react-router-dom';
 
 function Myrestaurantlist() {
 
@@ -41,14 +42,32 @@ function Myrestaurantlist() {
                         <p>{restaurant.name}</p>
                         <p>{restaurant.email}</p>
                         <p>Location:</p>
-                        <p>{restaurant.location 
-                        // && (
-                        //     fetchLocation(restaurant.location_id)
-                        //         .then((location) => location.county)
-                        //         .catch(() => "Unknown Location")
-                        // )
-                        }
-                        </p>
+                        <div>
+                            {restaurant.location &&
+                                Object.entries(restaurant.location).map(([key, value]) => (
+                                    key !== "id" && (
+                                        <p key={key}>
+                                            {key}: {value}
+                                        </p>
+                                    )
+                                ))
+                            }
+                        </div>
+                        <div>
+                            <p>{restaurant.reviews &&
+                                Object.entries(restaurant.reviews).map(([key, value]) => (
+                                    key !== "id" && (
+                                        <p key={key}>
+                                            {key}: {value}
+                                        </p>
+                                    )
+                                )) 
+                            }</p>
+                        </div>
+                        {/* <Link to="" >
+                            <button>Update</button>
+                        </Link> */}
+                        
                         <button onClick={() => handleDelete(restaurant.id)}>
                             Delete
                         </button>
