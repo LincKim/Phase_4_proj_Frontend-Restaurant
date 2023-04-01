@@ -5,8 +5,7 @@ function Restaurant() {
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [county, setCounty] = useState("")
-    const [street, setStreet] = useState("")
+    const [location_id, setLocation_id] = useState(0)
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")
 
@@ -16,9 +15,11 @@ function Restaurant() {
 
         const formData = {
             name,
-            email
+            email,
+            location_id
         }
-        fetch("/ristorantes", {
+        console.log(formData)
+        fetch("http://127.0.0.1:3000/ristorantes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -29,32 +30,10 @@ function Restaurant() {
                 r.json().then(() => {
                     setName("")
                     setEmail("")
+                    // setLocation_id(0)
                 })
             }
         })
-    }
-
-    function handleCreateLocation(e){
-            e.preventDefault()
-
-            const formData2 = {
-                county,
-                street
-            }
-            fetch('/locations', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData2)
-            }).then((r) => {
-                if (r.ok) {
-                    r.json().then(() => {
-                        setCounty("")
-                        setStreet("")
-                    })
-                }
-            })
     }
 
     function handleCreateReviews(e) {
@@ -79,6 +58,9 @@ function Restaurant() {
             }
         })
     }
+    const nairobi = 1
+    const nakuru = 2
+    const mombasa = 3
 
     return (
         <>
@@ -99,24 +81,13 @@ function Restaurant() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     /><br />
-                <button className="login-button" type="submit">Add</button>
-            </form>
-            <form className="login-form" onSubmit={handleCreateLocation}>
-                <h3>Enter Restaurant location</h3>
-                <label htmlFor="county">County:</label>
-                    <input 
-                    type="text" 
-                    placeholder="County"
-                    value={county}
-                    onChange={(e) => setCounty(e.target.value)}
-                    /><br />
-                <label htmlFor="street">Street:</label>
-                    <input 
-                    type="text" 
-                    placeholder="Street"
-                    value={street}
-                    onChange={(e) => setStreet(e.target.value)}
-                    /><br />
+                <label htmlFor="location">Location:</label>
+                    <select value={location_id} id="" onChange={(e) => setLocation_id(e.target.value)}>
+                        <option value="" disabled></option>
+                        <option value={nairobi}>Nairobi</option>
+                        <option value={nakuru}>Nakuru</option>
+                        <option value={mombasa}>Mombasa</option>
+                    </select>
                 <button className="login-button" type="submit">Add</button>
             </form>
             <form className="login-form" onSubmit={handleCreateReviews}>
