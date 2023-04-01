@@ -54,15 +54,14 @@ function Myrestaurantlist() {
                             }
                         </div>
                         <div>
-                            <p>{restaurant.reviews &&
+                            {restaurant.reviews &&
                                 Object.entries(restaurant.reviews).map(([key, value]) => (
-                                    key !== "id" && (
-                                        <p key={key}>
-                                            {key}: {value}
-                                        </p>
-                                    )
-                                )) 
-                            }</p>
+                                <div key={key}>
+                                    <p>Comment: {value.comment}</p>
+                                    <p>Rating: {value.rating}</p>
+                                </div>
+                                ))
+                            }
                         </div>
                         {/* <Link to="" >
                             <button>Update</button>
