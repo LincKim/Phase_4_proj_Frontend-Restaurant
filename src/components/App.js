@@ -1,17 +1,24 @@
-import Restaurant from './addrestaurant';
+import React, { useState } from 'react';
 import '../App.css';
-import Myrestaurantlist from './myrestaurants';
-import Review from './addreview';
-
-
+import LoginForm from './Login';
+import Signup from './Signup';
+ 
 function App() {
-  return (
-    <div className="App">
-      <Myrestaurantlist />
-     <Restaurant />
-     <Review />
+  const [currentForm, setCurrentForm] = useState('login')
+
+  const toggleForm = (formName) =>{
+    setCurrentForm(formName);
+  }
+  
+
+
+  return(
+    <div>
+     {
+      currentForm === "login" ? <LoginForm onFormSwitch={toggleForm}/> : <Signup onFormSwitch={toggleForm}/>
+     }
     </div>
-  );
+  )
 }
 
 export default App;
