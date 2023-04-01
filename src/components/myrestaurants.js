@@ -15,11 +15,11 @@ function Myrestaurantlist() {
             });
     }
      // Fetch location data for the given id
-     function fetchLocation(id) {
-        return fetch(`http://127.0.0.1:3000/locations/${id}`)
-            .then((r) => r.json())
-            .then(res => console.log(res)) 
-    }
+    //  function fetchLocation(id) {
+    //     return fetch(`http://127.0.0.1:3000/locations/${id}`)
+    //         .then((r) => r.json())
+    //         .then(res => console.log(res)) 
+    // }
 
     // Delete
     function handleDelete(id) {
@@ -41,11 +41,14 @@ function Myrestaurantlist() {
                         <p>{restaurant.name}</p>
                         <p>{restaurant.email}</p>
                         <p>Location:</p>
-                        <p>{restaurant.location_id && (
-                            fetchLocation(restaurant.location_id)
-                                .then((location) => location.county)
-                                .catch(() => "Unknown Location")
-                        )}</p>
+                        <p>{restaurant.location 
+                        // && (
+                        //     fetchLocation(restaurant.location_id)
+                        //         .then((location) => location.county)
+                        //         .catch(() => "Unknown Location")
+                        // )
+                        }
+                        </p>
                         <button onClick={() => handleDelete(restaurant.id)}>
                             Delete
                         </button>
@@ -57,3 +60,4 @@ function Myrestaurantlist() {
 }
 
 export default Myrestaurantlist;
+
