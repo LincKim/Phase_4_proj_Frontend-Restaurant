@@ -1,11 +1,24 @@
-import './App.css';
-
+import React, { useState } from 'react';
+import LoginForm from './Login';
+import Signup from './Signup';
+ 
 function App() {
-  return (
-    <div className="App">
-     
+  const [currentForm, setCurrentForm] = useState('login')
+
+  const toggleForm = (formName) =>{
+    setCurrentForm(formName);
+  }
+  
+
+
+  return(
+    <div>
+     {
+      currentForm === "login" ? <LoginForm onFormSwitch={toggleForm}/> : <Signup onFormSwitch={toggleForm}/>
+     }
+
     </div>
-  );
+  )
 }
 
 export default App;
