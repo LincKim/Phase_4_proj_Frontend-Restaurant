@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PasswordReset from './ResetPassword';
 import './LoginForm.css';
 
 function LoginForm(props) {
@@ -42,6 +43,7 @@ function LoginForm(props) {
 
       <button type="submit" className="login-button" onClick={()=> props.onFormSwitch('sign up')}>Don't have an account? Signup Here!</button>
     </form>
+    <PasswordReset/>
     </>
   );
 }
