@@ -23,7 +23,7 @@ function Signup(props) {
 
   const handleSubmit = (e) =>{
     e.preventDefault();
-    fetch("./users", {
+    fetch("https://restaurant-uauq.onrender.com/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

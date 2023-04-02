@@ -9,7 +9,7 @@ function Myrestaurantlist() {
     // GET all myrestaurants
     function handleMyRestaurants(e) {
         e.preventDefault();
-        fetch("http://127.0.0.1:3000/ristorantes")
+        fetch("https://restaurant-uauq.onrender.com/ristorantes")
             .then((r) => r.json())
             .then((res) => {
                 setRestaurants(res);
@@ -24,7 +24,7 @@ function Myrestaurantlist() {
 
     // Delete
     function handleDelete(id) {
-        fetch(`http://127.0.0.1:3000/ristorantes/${id}`, {
+        fetch(`https://restaurant-uauq.onrender.com/ristorantes/${id}`, {
             method: "DELETE",
         }).then(() => {
             setRestaurants(restaurants.filter((r) => r.id !== id));

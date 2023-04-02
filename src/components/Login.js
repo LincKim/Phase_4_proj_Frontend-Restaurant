@@ -15,7 +15,7 @@ function LoginForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("./login", {
+    fetch("https://restaurant-uauq.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

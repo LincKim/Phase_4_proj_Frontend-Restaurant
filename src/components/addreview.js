@@ -14,7 +14,7 @@ function Review () {
             comment, 
             rating
         }
-        fetch('/reviews', {
+        fetch('https://restaurant-uauq.onrender.com/reviews', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

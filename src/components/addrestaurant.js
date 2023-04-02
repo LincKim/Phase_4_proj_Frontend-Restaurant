@@ -18,7 +18,7 @@ function Restaurant() {
             location_id
         }
         console.log(formData)
-        fetch("http://127.0.0.1:3000/ristorantes", {
+        fetch("https://restaurant-uauq.onrender.com/ristorantes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -5,7 +5,7 @@ function ListAllRestaurants() {
     const[restaurants, setResturants] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/ristorantes')
+        fetch('https://restaurant-uauq.onrender.com/ristorantes')
         .then(res=>res.json())
         .then(data=>setResturants(data))
     }, [])
