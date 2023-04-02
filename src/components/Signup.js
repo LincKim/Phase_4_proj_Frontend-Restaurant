@@ -1,38 +1,38 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
 import Navbar from './Navbar';
+import { useNavigate, Link } from "react-router-dom";
 
 
 
 function Signup(props) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
+  const [formData, setFormData] = useState ({
+    username: "",
+    email: "",
+    password: "",
+    
+  });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  }
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  }
-
-  const handleEmailChange  = (event) => {
-    setEmail(event.target.value);
-  }
 
   const handleSubmit = (e) =>{
     e.preventDefault();
+    setIsLoading(true)
     fetch("https://restaurant-uauq.onrender.com/users", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-type": "application/json",
         },
-        body: JSON.stringify({ username, email, password}),
+        body: JSON.stringify(formData),
       })
         .then((r) => r.json())
-        .then((user) =>  (user));
+        .then((data) =>  {
+          localStorage.setItem("user", JSON.stringify(data.user));
+          navigate("/login");
+          setIsLoading(false);
+        });
   }
 
   return (
@@ -43,17 +43,25 @@ function Signup(props) {
      <h1 id='signn'>Signup</h1>
     <label>
       Username:
-      <input type="text" value={username} onChange={handleUsernameChange} />
+      <input type="text"   onChange={(e) => setFormData({ ...formData, username: e.target.value })}/>
     </label>
     <label>
       Email:
-      <input type="text" value={email} onChange={handleEmailChange} />
+      <input type="text"   onChange={(e) => setFormData({ ...formData, email: e.target.value })}/>
     </label>
     <label>
       Password:
-      <input type="password" value={password} onChange={handlePasswordChange} />
+      <input type="password"  onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
     </label>
-    <button type="submit" className="login-button">Signup</button>
+    {!isLoading &&
+                   <button type="submit" className="login-button">
+                        {" "}  <span>Sign Up</span>
+                      </button>}
+                      {isLoading &&
+                   <button type="submit" className="login-button">
+                        {" "}  <span>Redirecting to Login....</span>
+                      </button>}
+
     <button type="submit" className="login-button" onClick={() => props.onFormSwitch('login')}>Have an account? Login Here!</button>
     </form>
  

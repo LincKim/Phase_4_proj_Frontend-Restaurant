@@ -41,7 +41,7 @@ const Homepage = () => {
         </div> */}
         </div>
         <footer>
-        <div class="container">
+        <div className="container">
             <p>&copy; 2023 Ristorante</p>
         </div>
         </footer>
