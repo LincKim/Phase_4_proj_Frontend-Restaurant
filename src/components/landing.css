@@ -86,6 +86,7 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     background-size: cover;
+    
    
   }
   @keyframes background-animation {
