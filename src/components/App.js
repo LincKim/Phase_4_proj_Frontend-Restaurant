@@ -8,6 +8,7 @@ import Signup from './Signup';
 import MyRestaurantList from './MyRestaurantList';
 import LandingNavbar from './LandingNavbar';
 import Addrestaurant from './Addrestaurant';
+import Addreview from './Addreview';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path='/my-restaurants' element={<MyRestaurantList/>}/>
           <Route path='/landing' element={<LandingNavbar/>}/>
           <Route path='/add-restaurants' element={<Addrestaurant/>}/>
+          <Route path='/add-review' element={<Addreview/>}/>
       </Routes>
       {/* <div>
      {

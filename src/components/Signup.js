@@ -27,12 +27,18 @@ function Signup(props) {
         },
         body: JSON.stringify(formData),
       })
-        .then((r) => r.json())
-        .then((data) =>  {
-          localStorage.setItem("user", JSON.stringify(data.user));
-          navigate("/login");
-          setIsLoading(false);
-        });
+        .then((response) => {
+          if(response.ok){
+            response.json().then((data) =>  {
+            localStorage.setItem("user", JSON.stringify(data.user));
+            navigate("/login");
+            setIsLoading(false);
+          });
+        } else{
+          console.log("Error in Signup");
+      }
+      })
+      
   }
 
   return (

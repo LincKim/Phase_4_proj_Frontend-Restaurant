@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import './addrestaurant.css';
 import LandingNavbar from "./LandingNavbar";
+import { Link, useNavigate } from "react-router-dom";
 
 function Addrestaurant() {
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [location_id, setLocation_id] = useState(0)
+    const navigate = useNavigate();
    
 
     // POST REQUEST
@@ -31,6 +33,7 @@ function Addrestaurant() {
                     setName("")
                     setEmail("")
                     // setLocation_id(0)
+                    navigate("/my-restaurants")
                 })
             }
         })
@@ -62,12 +65,15 @@ function Addrestaurant() {
                     /><br />
                 <label htmlFor="location">Location:</label>
                     <select value={location_id} id="" onChange={(e) => setLocation_id(e.target.value)}>
-                        <option value="" disabled></option>
+                        <option value="" ></option>
                         <option value={nairobi}>Nairobi</option>
                         <option value={nakuru}>Nakuru</option>
                         <option value={mombasa}>Mombasa</option>
                     </select>
-                <button className="login-button" type="submit">Add</button>
+                <button className="login-button" type="submit">
+                    {/* <Link to="/my-restaurants" style={{color: "white"}}> Add</Link> */}
+                    Add
+                </button>
             </form>
            
         </div>

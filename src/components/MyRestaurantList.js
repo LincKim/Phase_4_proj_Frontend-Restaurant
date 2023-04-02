@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './restaurantlist.css';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import LandingNavbar from './LandingNavbar';
 
 function Myrestaurantlist() {
@@ -8,14 +8,20 @@ function Myrestaurantlist() {
     const [restaurants, setRestaurants] = useState([]);
 
     // GET all myrestaurants
-    function handleMyRestaurants(e) {
-        e.preventDefault();
-        fetch("https://restaurant-uauq.onrender.com/ristorantes")
+    useEffect(
+        () => {
+            fetch("https://restaurant-uauq.onrender.com/ristorantes")
             .then((r) => r.json())
             .then((res) => {
                 setRestaurants(res);
             });
-    }
+        }
+
+    )
+
+    
+      
+    
      // Fetch location data for the given id
     //  function fetchLocation(id) {
     //     return fetch(`http://127.0.0.1:3000/locations/${id}`)
@@ -37,9 +43,7 @@ function Myrestaurantlist() {
         <LandingNavbar />
         <div className="main">
            
-            <div className="card">
-                <button onClick={handleMyRestaurants}>My Restaurants</button>
-            </div>
+     
             <div className="card-container">
                 {restaurants.map((restaurant) => (
                     <div key={restaurant.id} className="card">
@@ -67,9 +71,9 @@ function Myrestaurantlist() {
                                 ))
                             }
                         </div>
-                        {/* <Link to="" >
+                        <Link to="/add-review" >
                             <button>Update</button>
-                        </Link> */}
+                        </Link>
                         
                         <button onClick={() => handleDelete(restaurant.id)}>
                             Delete

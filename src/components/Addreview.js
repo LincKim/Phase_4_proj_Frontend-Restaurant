@@ -1,7 +1,9 @@
 import { useState } from "react"
+import LandingNavbar from "./LandingNavbar"
+import { Link } from "react-router-dom"
 
 
-function Review () {
+function Addreview () {
 
     const [comment, setComment] = useState("")
     const [rating, setRating] = useState("")
@@ -32,6 +34,7 @@ function Review () {
 
     return (
         <>
+        <LandingNavbar/>
          <form className="login-form" onSubmit={handleCreateReviews}>
                 <h3>Enter Restaurant reviews</h3>
                 <label htmlFor="comment">Comment:</label>
@@ -49,7 +52,10 @@ function Review () {
                     onChange={(e) => setRating(e.target.value)}
                     required/><br />
 
-                <button className="login-button" type="submit">Add</button>
+                <button className="login-button" type="submit">
+                    Add
+                    {/* <Link to="/my-restaurants" style={{color: "white"}}> Add</Link> */}
+                </button>
 
             </form>
         
@@ -60,4 +66,4 @@ function Review () {
 
 }
 
-export default Review;
+export default Addreview;
