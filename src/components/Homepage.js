@@ -9,8 +9,8 @@ const Homepage = () => {
         
     <>
         <Navbar/>
-        <div class="homepage">
-        <div class="hero">
+        <div className="homepage">
+        <div className="hero">
             <h1>Welcome to Ristorante</h1>
             <p>Discover the best restaurants in the country, reviewed by customers like you</p>
             <Link to="/signup" className="signup">

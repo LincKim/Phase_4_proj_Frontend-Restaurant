@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './restaurantlist.css';
 import { Link } from 'react-router-dom';
+import LandingNavbar from './LandingNavbar';
 
 function Myrestaurantlist() {
 
@@ -32,7 +33,10 @@ function Myrestaurantlist() {
     }
 
     return (
+        <>
+        <LandingNavbar />
         <div className="main">
+           
             <div className="card">
                 <button onClick={handleMyRestaurants}>My Restaurants</button>
             </div>
@@ -74,6 +78,7 @@ function Myrestaurantlist() {
                 ))}
             </div>
         </div>
+        </>
     );
 }
 

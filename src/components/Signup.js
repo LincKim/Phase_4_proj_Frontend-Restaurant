@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
+import Navbar from './Navbar';
 
 
 
@@ -36,7 +37,10 @@ function Signup(props) {
 
   return (
     <>
+    <Navbar/>
+    
      <form onSubmit={handleSubmit} className="login-form">
+     <h1 id='signn'>Signup</h1>
     <label>
       Username:
       <input type="text" value={username} onChange={handleUsernameChange} />

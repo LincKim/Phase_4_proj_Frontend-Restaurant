@@ -79,4 +79,19 @@
   .restaurants-card .reviews h4:last-of-type {
     margin-bottom: 0;
   }
+  .cards-container{
+    animation-name: background-animation;
+    animation-duration: 90s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background-size: cover;
+  }
+  @keyframes background-animation {
+    0% { background-image: url('/public/image1.jpg'); }
+    20% { background-image: url('/public/image2.jpg'); }
+    40% { background-image: url('/public/image3.jpg'); }
+    60% { background-image: url('/public/image4.jpg'); }
+    80% { background-image: url('/public/image5.jpg'); }
+    100% { background-image: url('/public/image6.jpg'); }
+  }
   

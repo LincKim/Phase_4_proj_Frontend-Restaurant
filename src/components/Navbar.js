@@ -21,11 +21,11 @@ const Navbar = () => {
                         {/* <li> <NavLink href="#" className="lists">All Restaurants</NavLink></li> */}
                     {/* </ul> */}
                     <ul className="items-nav right-side">
-                    <li>
+                    {/* <li>
                             <NavLink to="/restaurants" className="logo-show login1">
                                 <span>All Restaurants</span>
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li>
                             <NavLink to="/login" className="logo-show login1">
                                 <span>Log In</span>

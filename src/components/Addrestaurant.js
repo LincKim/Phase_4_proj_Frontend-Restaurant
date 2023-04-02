@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './addrestaurant.css';
+import LandingNavbar from "./LandingNavbar";
 
-function Restaurant() {
+function Addrestaurant() {
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -41,6 +42,7 @@ function Restaurant() {
 
     return (
         <>
+        <LandingNavbar/>
         <div className="main2">
             <form className="login-form" onSubmit={handleCreateRestaurant}> 
                 <h3>Enter Restaurant details</h3>
@@ -73,4 +75,4 @@ function Restaurant() {
     )
 }
 
-export default Restaurant;
+export default Addrestaurant;
