@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './restaurantlist.css';
 import { Link} from 'react-router-dom';
 import LandingNavbar from './LandingNavbar';
+import './landing.css';
 
 function Myrestaurantlist() {
 
@@ -41,22 +42,22 @@ function Myrestaurantlist() {
     return (
         <>
         <LandingNavbar />
-        <div className="main">
+        <div className="mai">
            
      
-            <div className="card-container">
+            <div className="cards-container">
                 {restaurants.map((restaurant) => (
-                    <div key={restaurant.id} className="card">
-                        <p>{restaurant.name}</p>
-                        <p>{restaurant.email}</p>
-                        <p>Location:</p>
+                    <div key={restaurant.id} className="restaurants-card">
+                        <h2>{restaurant.name}</h2>
+                        <h4>Email: {restaurant.email}</h4>
+                        <h4>Location:</h4>
                         <div>
                             {restaurant.location &&
                                 Object.entries(restaurant.location).map(([key, value]) => (
                                     key !== "id" && (
-                                        <p key={key}>
+                                        <h4 key={key}>
                                             {key}: {value}
-                                        </p>
+                                        </h4>
                                     )
                                 ))
                             }
